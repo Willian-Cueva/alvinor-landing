@@ -1,3 +1,4 @@
+import { features } from "@/seed/seed";
 import { motion } from "framer-motion";
 
 export const FeaturesSection = () => {
@@ -21,32 +22,7 @@ export const FeaturesSection = () => {
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          {[
-            {
-              title: "Calidad Garantizada",
-              description:
-                "Todos nuestros productos cumplen con los más altos estándares de calidad del mercado.",
-              icon: "🏆",
-            },
-            {
-              title: "Entrega Rápida",
-              description:
-                "Contamos con un sistema logístico eficiente para entregas puntuales en todo el país.",
-              icon: "🚚",
-            },
-            {
-              title: "Asesoría Técnica",
-              description:
-                "Nuestro equipo de expertos te ayudará a elegir los materiales ideales para tu proyecto.",
-              icon: "👨‍💼",
-            },
-            {
-              title: "Precios Competitivos",
-              description:
-                "Ofrecemos la mejor relación calidad-precio en todos nuestros productos.",
-              icon: "💰",
-            },
-          ].map((feature, index) => (
+          {features.map((feature, index) => (
             <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}

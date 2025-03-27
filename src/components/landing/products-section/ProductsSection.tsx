@@ -1,13 +1,12 @@
 "use client";
 import { categories } from "@/seed/seed";
 import { motion } from "framer-motion";
-import { ChevronRight, Link } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { useState } from "react";
-import cx from "clsx";
 
 export const ProductsSection = () => {
-  const [activeCategory, setActiveCategory] = useState("glass");
+  const [activeHover, setActiveHover] = useState<String | null>(null);
   return (
     <section id="productos" className="py-20 bg-gray-50">
       <div className="container mx-auto px-4">
@@ -27,7 +26,103 @@ export const ProductsSection = () => {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-0">
+          {categories.map((category) => (
+            <motion.div
+              key={category.id}
+              className="relative aspect-square overflow-hidden"
+              onHoverStart={() => setActiveHover(category.id)}
+              onHoverEnd={() => setActiveHover(null)}
+            >
+              {/* Background Image with Hover Effects */}
+              <motion.div
+                className="absolute inset-0 w-full h-full"
+                animate={
+                  activeHover === category.id
+                    ? {
+                        scale: 1.2,
+                        filter: "brightness(0.5)",
+                        transition: { duration: 0.3,  },
+                      }
+                    : {
+                        scale: 1,
+                        filter: "brightness(1)",
+                        transition: { duration: 0.3, },
+                      }
+                }
+              >
+                <Image
+                  src={category.image}
+                  alt={category.name}
+                  layout="fill"
+                  objectFit="cover"
+                  className="transition-all duration-300"
+                />
+              </motion.div>
+
+              {/* Hover Content */}
+              <motion.div
+                className="absolute inset-0 flex flex-col justify-center items-center text-center z-10 px-4"
+                animate={
+                  activeHover === category.id
+                    ? {
+                        opacity: 1,
+                        transition: { duration: 0.3, delay: 0.1 },
+                      }
+                    : {
+                        opacity: 0,
+                        transition: { duration: 0.3 },
+                      }
+                }
+              >
+                <motion.h3
+                  className="text-white mb-4"
+                  initial={{ y: 15, opacity: 0 }}
+                  animate={
+                    activeHover === category.id
+                      ? {
+                          y: 0,
+                          opacity: 1,
+                          transition: { duration: 0.3, delay: 0.1 },
+                        }
+                      : {
+                          y: -15,
+                          opacity: 0,
+                          transition: { duration: 0.3 },
+                        }
+                  }
+                >
+                  <div className="text-2xl font-bold font-serif">{category.category}</div>
+                  <div className="font-normal">{category.name}</div>
+                </motion.h3>
+
+                <motion.button
+                  className="border border-white text-white px-6 py-2 rounded-md bg-transparent"
+                  initial={{ scale: 0.8, opacity: 0 }}
+                  animate={
+                    activeHover === category.id
+                      ? {
+                          scale: 1,
+                          opacity: 1,
+                          transition: { duration: 0.3 },
+                        }
+                      : {
+                          scale: 0,
+                          opacity: 0,
+                          transition: { duration: 0.3 },
+                        }
+                  }
+                  whileHover={{ scale: 1.1 }}
+                  whileTap={{ scale: 0.9 }}
+                >
+                  Cotizar
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* <div className="grid grid-cols-2 md:grid-cols-5 gap-4 mb-12">
           {categories.map((category) => (
             <motion.button
               key={category.id}
@@ -55,7 +150,7 @@ export const ProductsSection = () => {
               </div>
             </motion.button>
           ))}
-        </div>
+        </div> */}
 
         {/* <motion.div
           key={activeCategory}
