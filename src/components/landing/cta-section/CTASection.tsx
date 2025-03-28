@@ -20,7 +20,7 @@ export const CTASection = () => {
               proyecto. Nuestro equipo está listo para ayudarte a elegir los
               mejores materiales.
             </p>
-            <div className="space-y-4">
+            {/* <div className="space-y-4">
               <div className="flex items-center">
                 <Phone className="h-6 w-6 mr-3" />
                 <span>+593 99 123 4567</span>
@@ -33,7 +33,7 @@ export const CTASection = () => {
                 <MapPin className="h-6 w-6 mr-3" />
                 <span>Av. Principal 123, Quito, Ecuador</span>
               </div>
-            </div>
+            </div> */}
           </motion.div>
 
           <motion.div
