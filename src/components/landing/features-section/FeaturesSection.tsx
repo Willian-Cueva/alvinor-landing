@@ -1,10 +1,26 @@
 import { features } from "@/seed/seed";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 export const FeaturesSection = () => {
   return (
     <section className="py-20 bg-white" id="nosotros">
       <div className="container mx-auto px-4">
+        <motion.div
+          initial={{ opacity: 0, scale: 0}}
+          whileInView={{ opacity: 1, scale: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.5 }}
+          className="text-center mb-24"
+        >
+          <Image
+            src="/alvinor.jpg"
+            alt="Materiales de construcción"
+            width={450}
+            height={450}
+            className="mx-auto"
+          />
+        </motion.div>
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -32,7 +48,9 @@ export const FeaturesSection = () => {
               className="bg-gray-50 p-8 rounded-xl hover:shadow-lg transition-all"
             >
               <div className="text-4xl mb-4">{feature.icon}</div>
-              <h3 className="text-gray-700 text-xl font-bold mb-3">{feature.title}</h3>
+              <h3 className="text-gray-700 text-xl font-bold mb-3">
+                {feature.title}
+              </h3>
               <p className="text-gray-600">{feature.description}</p>
             </motion.div>
           ))}

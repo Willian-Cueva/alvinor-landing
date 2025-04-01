@@ -42,20 +42,20 @@ export const ProductsSection = () => {
                     ? {
                         scale: 1.2,
                         filter: "brightness(0.5)",
-                        transition: { duration: 0.3,  },
+                        transition: { duration: 0.3 },
                       }
                     : {
                         scale: 1,
                         filter: "brightness(1)",
-                        transition: { duration: 0.3, },
+                        transition: { duration: 0.3 },
                       }
                 }
               >
                 <Image
                   src={category.image}
                   alt={category.name}
-                  layout="fill"
-                  objectFit="cover"
+                  fill
+                  style={{ objectFit: "cover" }}
                   className="transition-all duration-300"
                 />
               </motion.div>
@@ -92,7 +92,9 @@ export const ProductsSection = () => {
                         }
                   }
                 >
-                  <div className="text-2xl font-bold font-serif">{category.category}</div>
+                  <div className="text-2xl font-bold font-serif">
+                    {category.category}
+                  </div>
                   <div className="font-normal">{category.name}</div>
                 </motion.h3>
 

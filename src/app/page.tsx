@@ -5,7 +5,7 @@ import {
   FeaturesSection,
   HeroSection,
   ProductsSection,
-  TopMenu,
+  WhatsAppFloatingButton,
 } from "@/components";
 
 export default function Home() {
@@ -14,14 +14,17 @@ export default function Home() {
       {/* Hero Section */}
       <HeroSection />
 
-      {/* Products Section */}
-      <ProductsSection />
-
       {/* Features Section */}
       <FeaturesSection />
 
+      {/* Products Section */}
+      <ProductsSection />
+
       {/* CTA Section */}
       <CTASection />
+
+      {/* WhatsApp Button */}
+      <WhatsAppFloatingButton />
     </div>
   );
 }
