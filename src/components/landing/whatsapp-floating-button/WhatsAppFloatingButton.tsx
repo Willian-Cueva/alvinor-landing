@@ -23,7 +23,7 @@ export const WhatsAppFloatingButton = () => {
       <AnimatePresence>
         {isCardOpen && (
           <motion.div
-            className="mb-4 bg-white border border-gray-200 rounded-md shadow-lg p-4 w-96"
+            className="mb-4 bg-white border border-gray-200 rounded-md shadow-lg p-4 w-96 max-h-[250px] overflow-hidden"
             initial={{ opacity: 0, y: 50, scale: 0.8 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.9 }}
@@ -33,7 +33,7 @@ export const WhatsAppFloatingButton = () => {
               Hola, ¿en qué podemos ayudarte?
             </div>
             <textarea
-              className="w-full border border-gray-300 rounded-md p-2 mb-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500"
+              className="w-full border border-gray-300 rounded-md p-2 mb-2 text-gray-700 focus:outline-none focus:ring-2 focus:ring-green-500 max-h-[100px] overflow-y-auto"
               placeholder="Escribe tu mensaje aquí..."
               rows={3}
               ref={inputMessageRef}
